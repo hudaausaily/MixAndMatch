@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Reservation;
+use App\Models\order;
 
 use App\Models\User;
 
@@ -19,23 +19,23 @@ class ProfileUserController extends Controller
     public function index()
     {
         $id = auth()->user()->id;
-        $reservations = Reservation::where('user_id', $id)->get();
-        // dd($reservations);
+        $orders = order::where('user_id', $id)->get();
+        // dd($orders);
         $data = [];
-        foreach ($reservations as $reservation) {
+        foreach ($orders as $order) {
             $data[] = [
-                'id' => $reservation->id,
-                // 'first_name' => $reservation->first_name,
-                // 'last_name' => $reservation->last_name,
-                // 'phoneNumber' => $reservation->phoneNumber,
-                // 'email'=>$reservation->email,
-                'number_of_guest' => $reservation->number_of_guest,
-                'res_date' => $reservation->res_date,
-                'price' => $reservation->price,
-                'status' => $reservation->status,
-                'trip' => isset($reservation->trip) ? $reservation->trip->name : "",
-                'trip_image' => isset($reservation->trip) ? $reservation->trip->image : "",
-                // 'user' => isset($reservation->user) ? $reservation->user->name : "",
+                'id' => $order->id,
+                // 'first_name' => $order->first_name,
+                // 'last_name' => $order->last_name,
+                // 'phoneNumber' => $order->phoneNumber,
+                // 'email'=>$order->email,
+                'number_of_guest' => $order->number_of_guest,
+                'res_date' => $order->res_date,
+                'price' => $order->price,
+                'status' => $order->status,
+                'product' => isset($order->product) ? $order->product->name : "",
+                'product_image' => isset($order->product) ? $order->product->image : "",
+                // 'user' => isset($order->user) ? $order->user->name : "",
 
 
             ];
@@ -101,7 +101,7 @@ class ProfileUserController extends Controller
         $profile->email = $request->email;
         $profile->phone = $request->phone;
         // $profile->guest_number = $request->guest_number;
-        // $data->price = $request->trip_price;
+        // $data->price = $request->product_price;
         // $data->category_id = $request->select;
         // $data->image = $photoName;
         $profile->save();
@@ -118,7 +118,7 @@ class ProfileUserController extends Controller
     public function destroy($id)
     {
         // dd($id);
-        Reservation::findOrfail($id)->delete();
+        order::findOrfail($id)->delete();
         return redirect()->route('user.profile.index');
     }
 }

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Trip
+Category
 @endsection
 
 @section('css')
@@ -12,11 +12,11 @@ Trip
 @endsection
 
 @section('section_title')
-Create new Trip
+Edit  Product
 @endsection
 
 
-@section('Trips')
+@section('products')
 active
 @endsection
 
@@ -25,7 +25,7 @@ admin
 @endsection
 
 @section('title_page2')
-Trip
+edit Product
 @endsection
 
 
@@ -39,43 +39,46 @@ Trip
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('admin.trips.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('admin.products.update',$data->id)}}" method="POST" enctype="multipart/form-data">
+
+                @method('PUT')
+
                 @csrf
 
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="trip_name" placeholder="Enter name" value="{{ old('trip_name')}}" class="@error('trip_name') is-invalid @enderror">
-                  @error('trip_name')
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="product_name" value="{{$data->name}}" class="@error('product_name') is-invalid @enderror">
+                  @error('product_name')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail11">Short description</label>
-                  <input type="text" class="form-control" id="exampleInputEmail11" name="short_description" placeholder="Enter Long description" value="{{ old('short_description')}}" class="@error('short_description') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail11" name="short_description" value="{{$data->short_description}}" class="@error('short_description') is-invalid @enderror">
                   @error('short_description')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail11">Long description</label>
-                  <input type="text" class="form-control" id="exampleInputEmail11" name="long_description" placeholder="Enter Long description" value="{{ old('long_description')}}" class="@error('long_description') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail11" name="long_description" value="{{$data->long_description}}" placeholder="Enter Long description" class="@error('long_description') is-invalid @enderror">
                   @error('long_description')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="exampleInputEmail1">Guest number</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="guest_number" placeholder="Enter guest number" value="{{ old('guest_number')}}" class="@error('guest_number') is-invalid @enderror">
+                  <input type="number" class="form-control" id="exampleInputEmail1" name="guest_number" placeholder="Enter guest number" value="{{$data->guest_number}}" class="@error('guest_number') is-invalid @enderror">
                   @error('guest_number')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
-                </div>
+                </div> --}}
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="trip_price" placeholder="Enter price" value="{{ old('trip_price')}}" class="@error('trip_price') is-invalid @enderror">
-                  @error('trip_price')
+                  <input type="number" class="form-control" id="exampleInputEmail1" name="product_price" placeholder="Enter price" value="{{$data->price}}" class="@error('product_price') is-invalid @enderror">
+                  @error('product_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
@@ -90,48 +93,47 @@ Trip
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                   </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Image one</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                        {{-- <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br> --}}
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="trip_image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror">
+                  <div class="form-group">
+                    <label for="exampleInputFile">Image one</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="product_image" value="{{ old('product_image')}}" class="@error('product_image') is-invalid @enderror">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
+                      </div>
+                      <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
-                    </div>
-                    </div>
-                        @error('trip_image')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
+                      </div>
+                  </div>
+                  @error('product_image')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                 @enderror
+              </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">Image two</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                        {{-- <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br> --}}
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="trip_image2" value="{{ old('trip_image2')}}" class="@error('trip_image2') is-invalid @enderror">
+                    <label for="exampleInputFile">Image two</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="product_image2" value="{{ old('product_image2')}}" class="@error('product_image2') is-invalid @enderror">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
+                      </div>
+                      <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
+                      </div>
                     </div>
-                    </div>
-                        @error('trip_image2')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
+                  @error('product_image2')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                 @enderror
+              </div>
+              <!-- /.card-body -->
+
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-
+              </div>
+            </form>
           </div>
-        </form>
           <!-- /.card -->
     </div>
-  </div>
-
+  {{-- </div> --}}
   <!-- /.row -->
 @endsection
 

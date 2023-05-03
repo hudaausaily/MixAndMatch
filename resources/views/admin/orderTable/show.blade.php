@@ -2,7 +2,7 @@
 
 
 @section('title')
-Reservation
+Orders
 @endsection
 
 @section('css')
@@ -33,10 +33,10 @@ Reservation
 @endsection
 
 @section('section_title')
-Reservations Table
+Orders Table
 @endsection
 
-@section('Reservations')
+@section('orders')
 active
 @endsection
 
@@ -45,7 +45,7 @@ admin
 @endsection
 
 @section('title_page2')
-Reservation
+orders
 @endsection
 
 
@@ -56,7 +56,7 @@ Reservation
     <div class="col-12">
       <div class="card">
         <div class="card-header bg-warning">
-          <h3 class="card-title">Reservations Pending</h3>
+          <h3 class="card-title">Orders Pending</h3>
 
         </div>
         </div>
@@ -71,9 +71,9 @@ Reservation
                 <th>Last name</th>
                 <th>Phone No.</th>
                 <th>Email</th>
-                <th>Trip</th>
+                <th>product</th>
                 <th>Guest number</th>
-                <th>Reservation date</th>
+                <th>Orders date</th>
                 <th>Status</th>
                 <th>edit</th>
                 <th>delete</th>
@@ -89,7 +89,7 @@ Reservation
                     <td>{{$value['last_name']}}</td>
                     <td>{{$value['phoneNumber']}}</td>
                     <td>{{$value['email']}}</td>
-                    <td>{{$value['trip']	}}</td>
+                    <td>{{$value['product']	}}</td>
                     <td>{{$value['number_of_guest']}}</td>
 
                     <td>{{$value['res_date']	}}</td>
@@ -99,10 +99,10 @@ Reservation
                     @endif
 
 
-                    <td><a href="{{Route('admin.reservation.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td><a href="{{Route('admin.order.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td>
-                        <form action="{{Route('admin.reservation.destroy',$value['id'])}}" method="post">
+                        <form action="{{Route('admin.order.destroy',$value['id'])}}" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
@@ -127,7 +127,7 @@ Reservation
     <div class="col-12">
         <div class="card">
         <div class="card-header bg-success" >
-          <h3 class="card-title">Reservations Accepted</h3>
+          <h3 class="card-title">Orders Accepted</h3>
 
         </div>
         </div>
@@ -142,9 +142,9 @@ Reservation
                     <th>Last name</th>
                     <th>Phone No.</th>
                     <th>Email</th>
-                    <th>Trip</th>
+                    <th>Product</th>
                     <th>Guest number</th>
-                    <th>Reservation date</th>
+                    <th>Orders date</th>
                     <th>Status</th>
                     <th>edit</th>
                     <th>delete</th>
@@ -160,7 +160,7 @@ Reservation
                     <td>{{$value['last_name']}}</td>
                     <td>{{$value['phoneNumber']}}</td>
                     <td>{{$value['email']}}</td>
-                    <td>{{$value['trip']	}}</td>
+                    <td>{{$value['product']	}}</td>
                     <td>{{$value['number_of_guest']}}</td>
 
                     <td>{{$value['res_date']	}}</td>
@@ -175,10 +175,10 @@ Reservation
 
 
 
-                    <td><a href="{{Route('admin.reservation.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td><a href="{{Route('admin.order.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td>
-                        <form action="{{Route('admin.reservation.destroy',$value['id'])}}" method="post">
+                        <form action="{{Route('admin.order.destroy',$value['id'])}}" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
@@ -203,7 +203,7 @@ Reservation
     <div class="col-12">
       <div class="card">
         <div class="card-header bg-danger">
-          <h3 class="card-title">Reservations Rejected</h3>
+          <h3 class="card-title">Orders Rejected</h3>
 
         </div>
         </div>
@@ -218,9 +218,9 @@ Reservation
                 <th>Last name</th>
                 <th>Phone No.</th>
                 <th>Email</th>
-                <th>Trip</th>
+                <th>product</th>
                 <th>Guest number</th>
-                <th>Reservation date</th>
+                <th>Orders date</th>
                 <th>Status</th>
                 <th>edit</th>
                 <th>delete</th>
@@ -236,7 +236,7 @@ Reservation
                     <td>{{$value['last_name']}}</td>
                     <td>{{$value['phoneNumber']}}</td>
                     <td>{{$value['email']}}</td>
-                    <td>{{$value['trip']	}}</td>
+                    <td>{{$value['product']	}}</td>
                     <td>{{$value['number_of_guest']}}</td>
 
                     <td>{{$value['res_date']	}}</td>
@@ -249,10 +249,10 @@ Reservation
 
 
 
-                    <td><a href="{{Route('admin.reservation.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td><a href="{{Route('admin.order.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td>
-                        <form action="{{Route('admin.reservation.destroy',$value['id'])}}" method="post">
+                        <form action="{{Route('admin.order.destroy',$value['id'])}}" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>

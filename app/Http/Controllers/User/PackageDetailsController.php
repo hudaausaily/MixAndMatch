@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Trip;
+use App\Models\product;
 
 use Illuminate\Http\Request;
 
@@ -12,20 +12,20 @@ class PackageDetailsController extends Controller
     public function index($id)
     {
 
-        $trips = Trip::where('category_id',$id)->get();
-        // dd( $trips);
+        $products = product::where('category_id',$id)->get();
+        // dd( $products);
 
         $data = [];
-        foreach ($trips as $trip) {
+        foreach ($products as $product) {
             $data[] = [
-                'id' => $trip->id,
-                'name' => $trip->name,
-                'short_description' => $trip->short_description,
-                // 'long_description' => $trip->long_description,
-                'guest_number' => $trip->guest_number,
-                'price' => $trip->price,
-                'image' => $trip->image,
-                'category' => isset($trip->category) ? $trip->category->name : "",
+                'id' => $product->id,
+                'name' => $product->name,
+                'short_description' => $product->short_description,
+                // 'long_description' => $product->long_description,
+                'guest_number' => $product->guest_number,
+                'price' => $product->price,
+                'image' => $product->image,
+                'category' => isset($product->category) ? $product->category->name : "",
 
 
             ];

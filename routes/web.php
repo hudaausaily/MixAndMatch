@@ -5,17 +5,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CatregoryController;
-use App\Http\Controllers\Admin\TripController;
-use App\Http\Controllers\Admin\ReservationController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\User\PublicUserController;
 use App\Http\Controllers\User\RegisterUserController;
 use App\Http\Controllers\User\LoginUserController;
 use App\Http\Controllers\User\PackageDetailsController;
-use App\Http\Controllers\User\TripsDetailsController;
+use App\Http\Controllers\User\productsDetailsController;
 use App\Http\Controllers\User\EditBookController;
 use App\Http\Controllers\User\BookController;
 use App\Http\Controllers\User\ProfileUserController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\User\ShopController;
 use App\Http\Controllers\User\Search;
 
 
@@ -39,8 +40,10 @@ Route::get('/',[AdminController::class,'index'])->name('index');
 Route::get('/admin',[AdminController::class,'admin'])->name('show.admin');
 Route::resource('/users',UserController::class);
 Route::resource('/categories',CatregoryController::class);
-Route::resource('/trips',TripController::class);
-Route::resource('/reservation',ReservationController::class);
+Route::resource('/products',ProductController::class);
+Route::resource('/order',OrderController::class);
+Route::get('contact',[FeedController::class,'show'])->name('contact.show');
+
 });
 
 
@@ -54,21 +57,20 @@ Route::get('/user', function () {
 });
 Route::prefix('user')->name('user.')->group(function () {
 
+    Route::get('/shop',[ShopController::class,'index'])->name('shop');
 
 
-    // Route::get('/',[PublicUserController::class,'index'])->name('index');
+
+
     Route::get('/categories/{id}',[PublicUserController::class,'show'])->name('categories.show');
     
     Route::get('/about',function(){
         return view('publicUser.about');
     })->name('about');
     
-    // Route::get('/contact',function(){
-    //     return view('publicUser.contact');
-    // })->name('contact');
+   
     
      Route::get('/contact',[FeedController::class,'index'])->name('contact');
-     Route::get('/admin/contact',[FeedController::class,'show'])->name('contact.show');
      Route::get('/contact/create',[FeedController::class,'store'])->name('contact.create');
     
     Route::resource('/signup',RegisterUserController::class);
@@ -81,7 +83,7 @@ Route::prefix('user')->name('user.')->group(function () {
     
     Route::get('/package_details/{id}',[PackageDetailsController::class,'index'])->name('package.details');
     
-    Route::get('/trip_details/{id}',[TripsDetailsController::class,'index'])->name('trip.details');
+    Route::get('/product_details/{id}',[productsDetailsController::class,'index'])->name('product.details');
     Route::get('/booking/{id}',[BookController::class,'index'])->name('book')->middleware('CheckLogin');
     Route::get('/booking/create/{id}',[BookController::class,'create'])->name('book.create')->middleware('CheckLogin');
     

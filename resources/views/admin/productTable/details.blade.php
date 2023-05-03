@@ -2,7 +2,7 @@
 
 
 @section('title')
-Trips details
+Product details
 @endsection
 
 @section('css')
@@ -20,7 +20,7 @@ admin
 @endsection
 
 @section('title_page2')
-trip details
+Product details
 @endsection
 
 @section('content')
@@ -56,7 +56,7 @@ trip details
                 <h4>Category : {{$data[0]['category']}} </h4>
 
 
-                <h4 class="mt-3">Guest  number : {{$data[0]['guest_number']}}</h4>
+                {{-- <h4 class="mt-3">Guest  number : {{$data[0]['guest_number']}}</h4> --}}
 
 
                 <div class="bg-gray py-2 px-3 mt-4">

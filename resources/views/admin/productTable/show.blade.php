@@ -2,20 +2,15 @@
 
 
 @section('title')
-Trips
+Product
 @endsection
 
 @section('section_title')
-Trips Table
+Product Table
 @endsection
 
-@section('css')
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
-<link rel="stylesheet" href=".{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
-@endsection
 
-@section('Trips')
+@section('products')
 active
 @endsection
 
@@ -24,7 +19,7 @@ admin
 @endsection
 
 @section('title_page2')
-Trips
+Product
 @endsection
 
 
@@ -35,40 +30,27 @@ Trips
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Trips controls</h3>
+          <h3 class="card-title">Product controls</h3>
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 100px;">
 
-                {{-- <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><a href="{{route('admin.categories.create')}}">Add new category</a></button> --}}
 
-         <a href="{{route('admin.trips.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new trip</button></a>
+         <a href="{{route('admin.products.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add Product</button></a>
 
-              {{-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-default">
-                  <i class="fas fa-search"></i>
-                </button> --}}
+             
               </div>
             </div>
           </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" >
+        <div class="card-body table-responsive p-0" style="height: 300px;">
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
                 <th style="text-align: center">#</th>
                 <th style="text-align: center">Name</th>
                 <th style="text-align: center">more details</th>
-                {{-- <th>Short description</th>
-                <th>Long description</th>
-                <th>image one</th>
-                <th>image two</th>
-                <th>Category</th>
-                <th>Guest number</th>
-                <th>price</th> --}}
                 <th style="text-align: center">edit</th>
                 <th style="text-align: center">delete</th>
               </tr>
@@ -81,14 +63,14 @@ Trips
                 <tr>
                     <td style="text-align: center">{{$value['id']}}</td>
                     <td style="text-align: center">{{$value['name']}}</td>
-                    <td style="text-align: center"><a href="{{Route('admin.trips.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
+                    <td style="text-align: center"><a href="{{Route('admin.products.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
 
 
 
-                    <td style="text-align: center"><a href="{{Route('admin.trips.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td style="text-align: center"><a href="{{Route('admin.products.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td style="text-align: center">
-                        <form action="{{Route('admin.trips.destroy',$value['id'])}}" method="post">
+                        <form action="{{Route('admin.products.destroy',$value['id'])}}" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
@@ -99,18 +81,7 @@ Trips
 
                 @endforeach
 
-              {{-- </tr> <tr>
-                <td>183</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-success">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                <td>
-                    <button href="" type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
-                  </td>
-                <td>
-                    <button href="" type="button" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                </td> --}}
+             
 
             </tbody>
           </table>

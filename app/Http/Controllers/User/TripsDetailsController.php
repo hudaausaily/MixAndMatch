@@ -3,34 +3,34 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Trip;
+use App\Models\product;
 
 use Illuminate\Http\Request;
 
-class TripsDetailsController extends Controller
+class productsDetailsController extends Controller
 {
     public function index($id)
     {
 
-        if(count(Trip::all()) < $id || $id < 0){
+        if(count(product::all()) < $id || $id < 0){
             return redirect()->back();
         }
 
 
-        $trips = Trip::where('id',$id)->get();
+        $products = product::where('id',$id)->get();
 
         $data = [];
-        foreach ($trips as $trip) {
+        foreach ($products as $product) {
             $data[] = [
-                'id' => $trip->id,
-                'name' => $trip->name,
-                'short_description' => $trip->short_description,
-                'long_description' => $trip->long_description,
-                'guest_number' => $trip->guest_number,
-                'price' => $trip->price,
-                'image' => $trip->image,
-                'image2' => $trip->image2,
-                'category' => isset($trip->category) ? $trip->category->name : "",
+                'id' => $product->id,
+                'name' => $product->name,
+                'short_description' => $product->short_description,
+                'long_description' => $product->long_description,
+                'guest_number' => $product->guest_number,
+                'price' => $product->price,
+                'image' => $product->image,
+                'image2' => $product->image2,
+                'category' => isset($product->category) ? $product->category->name : "",
 
 
             ];

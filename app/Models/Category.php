@@ -12,8 +12,8 @@ class Category extends Model
     protected $fillable = ['name','image','description'];
 
 
-    public function trip()
+    public function product()
     {
-        return $this->hasMany(Trip::class);
+        return $this->hasMany(product::class);
     }
 }

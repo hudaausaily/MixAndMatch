@@ -1,18 +1,12 @@
-@extends('admin.layouts.master');
+@extends('admin.layouts.master')
 
 
 @section('title')
-Profile
-@endsection
-
-@section('css')
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
-<link rel="stylesheet" href=".{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+Messages
 @endsection
 
 @section('section_title')
-
+Messages Table
 @endsection
 
 
@@ -32,22 +26,13 @@ Messages
 @section('content')
 
  <!-- /.row -->
- <div class="row container-fluid m-auto" style="text-align: center;">
+ <div class="row container-fluid m-auto">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Admin controls</h3>
+          <h3 class="card-title">Messages controls</h3>
 
-          <div class="card-tools">
-            <div class="input-group input-group-sm" style="width: 90px;">
-
-
-
-
-
-
-              </div>
-            </div>
+      
           </div>
         </div>
         <!-- /.card-header -->
@@ -62,8 +47,6 @@ Messages
                 <th>Subject</th>
                 <th>Message</th>
 
-                {{-- <th>is_admin</th> --}}
-                {{-- <th>Delete</th> --}}
               </tr>
             </thead>
             <tbody>

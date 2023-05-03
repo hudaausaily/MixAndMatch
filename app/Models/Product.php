@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Trip extends Model
+class product extends Model
 {
     use HasFactory;
     use SoftDeletes;

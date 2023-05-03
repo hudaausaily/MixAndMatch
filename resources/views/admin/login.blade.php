@@ -39,3 +39,9 @@
         </div>
     </form>
 </x-guest-layout>
+
+@if(session()->has('error'))
+    <script>
+        alert('{{ session('error') }}');
+    </script>
+@endif

@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('phoneNumber');
             $table->string('email');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('trip_id')->constrained('trips')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->string('status')->default('Pending');
             $table->integer('number_of_guest')->default(1);
             $table->text('comment')->nullable();
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('orders');
     }
 };

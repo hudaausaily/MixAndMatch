@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Reservation;
-use App\Models\Trip;
+use App\Models\order;
+use App\Models\product;
 use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
@@ -18,13 +18,13 @@ class BookController extends Controller
     public function index($id)
     {
 
-        if(count(Trip::all()) < $id || $id < 0){
+        if(count(product::all()) < $id || $id < 0){
             return redirect()->back();
         }
         return view('publicUser.book', [
-            'data' => Trip::findOrFail($id)
+            'data' => product::findOrFail($id)
         ]);
-        // $data = Trip::findOrfail($id);
+        // $data = product::findOrfail($id);
         // return view('publicUser.book',['data'=>$data]);
 
     }
@@ -40,7 +40,7 @@ class BookController extends Controller
         ]);
 
 
-        $data = Trip::findOrfail($id);
+        $data = product::findOrfail($id);
         if(  $data->guest_number ==1){
             $price =$request->guest_number*$data->price;
         }else{
@@ -49,7 +49,7 @@ class BookController extends Controller
 // dd($price);
         $user=$request->user_id;
         // dd($request->guest_number);
-        Reservation::create([
+        order::create([
 
             'first_name' => $request->first_name,
             'user_id' => $user,
@@ -61,12 +61,12 @@ class BookController extends Controller
             'comment' => $request->comment,
             'price' =>   $price,
             'status' => 'Pending',
-            'trip_id' => $id,
+            'product_id' => $id,
 
 
         ]);
 
-        return redirect()->route('user.profile.index')->with('success','Reservation Successful,thank you for booking.');
+        return redirect()->route('user.profile.index')->with('success','order Successful,thank you for booking.');
 
     }
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Reservation;
-use App\Models\Trip;
+use App\Models\order;
+use App\Models\product;
 
 use Illuminate\Http\Request;
 
@@ -14,23 +14,23 @@ class EditBookController extends Controller
     public function index($id)
     {
 
-        $reservation = Reservation::where('id', $id)->get();
-        if($reservation->isEmpty()) {
+        $order = order::where('id', $id)->get();
+        if($order->isEmpty()) {
             return redirect()->back();
         }
 
-        $trip_id=$reservation[0]->trip_id;
+        $product_id=$order[0]->product_id;
 
-        $trip = Trip::where('id', $trip_id)->get();
+        $product = product::where('id', $product_id)->get();
 
-        // dd($trip);
-        return view('publicUser.editBook', ['reservation' => $reservation,'trip'=>$trip]);
+        // dd($product);
+        return view('publicUser.editBook', ['order' => $order,'product'=>$product]);
     }
     public function update(Request $request , $id)
     {
 
 
-        $trip_id=$request->trip_id;
+        $product_id=$request->product_id;
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -39,7 +39,7 @@ class EditBookController extends Controller
             'res_date' => ['required'],
         ]);
 
-        $data = Trip::findOrfail($trip_id);
+        $data = product::findOrfail($product_id);
         if(  $data->guest_number ==1){
             $price =$request->guest_number*$data->price;
         }else{
@@ -48,7 +48,7 @@ class EditBookController extends Controller
         $user=$request->user_id;
         // dd($request->guest_number);
 
-        $data = Reservation::findOrfail($id);
+        $data = order::findOrfail($id);
         $date1=date_create(  $data->res_date );
         $date2=date_create(now());
         $diff=date_diff($date2,$date1);
@@ -65,7 +65,7 @@ class EditBookController extends Controller
         $data->comment = $request->comment;
         $data->price = $price;
         $data->status = 'Pending';
-        $data->trip_id = $trip_id;
+        $data->product_id = $product_id;
         $data->save();
 
 

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Profile
+Admins
 @endsection
 
 @section('css')
@@ -25,7 +25,7 @@ admin
 @endsection
 
 @section('title_page2')
-Profile
+Admins
 @endsection
 
 
@@ -52,8 +52,8 @@ Profile
           </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0 "  style="height: 300px;">
-          <table class="table table-head-fixed text-nowrap" style="justify-content: center">
+        <div class="card-body table-responsive table-stripped p-0 "  style="height: 300px;">
+          <table class="table table-head-fixed table-striped text-nowrap" style="justify-content: center">
             <thead>
               <tr>
                 <th>ID</th>
@@ -65,7 +65,7 @@ Profile
                 {{-- <th>Delete</th> --}}
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-white">
                 @foreach ($data as $value)
                 @if($value->is_admin==1)
                 <tr>
@@ -74,15 +74,7 @@ Profile
                     <td>{{$value->email	}}</td>
                     <td>{{$value->phone	}}</td>
                     
-                    {{-- <td>{{$value->is_admin	}}</td> --}}
-
-                    {{-- <td>
-                        <form action="{{Route('admin.users.destroy',$value->id)}}" method="post">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                        </form>
-                    </td> --}}
+                 
 
                 </tr>
 

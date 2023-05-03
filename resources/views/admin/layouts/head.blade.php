@@ -45,14 +45,14 @@
   <style>
   .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #3ED2A2 !important;
+  color: black;
+  background-color: #ffe8a1 !important;
 }
 .nav-pills .nav-link{
-  color: #556080;
+  color: white;
 }
 .btn.btn-sidebar{
-  background-color: #3ED2A2
+  background-color: #ffe8a1
 }
 .fas.fa-search.fa-fw{
   color: #fff;
@@ -61,7 +61,7 @@
   color: #556080
 }
 a.nav-link:hover{
-  color: #3ED2A2 !important;
+  color: #ffe8a1 !important;
 }
 a.nav-link.active:hover{
   color: #fff !important;

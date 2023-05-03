@@ -16,8 +16,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->is_admin){
-            abort(403);
+        if (!auth()->check() || !auth()->user()->is_admin) {
+            $message = 'You are not authorized to access this page.';
+            return redirect()->back()->with('error', $message);
         }
         return $next($request);
     }

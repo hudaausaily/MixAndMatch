@@ -10,7 +10,7 @@ use App\Models\Category;
 
 use Illuminate\Http\Request;
 
-class productController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class productController extends Controller
      */
     public function index()
     {
-        $productTables = productTable::with('category')->get();
+        $productTables = Product::with('category')->get();
         $data = [];
         foreach ($productTables as $productTable) {
             $data[] = [
@@ -101,7 +101,7 @@ class productController extends Controller
      */
     public function show($id)
     {
-        $productTables = productTable::where('id', $id)->get();
+        $productTables = Product::where('id', $id)->get();
         $data = [];
         foreach ($productTables as $productTable) {
             $data[] = [
@@ -138,7 +138,7 @@ class productController extends Controller
 
 
         $category=Category::all();
-        $productTable = productTable::where('id', $id)->get();
+        $productTable = Product::where('id', $id)->get();
 
         // $productTable=productTable::findOrFail($id); is emptyما بتزبط مع ال
         if($productTable->isEmpty()) {
@@ -206,7 +206,7 @@ class productController extends Controller
      */
     public function destroy($id)
     {
-        productTable::findOrfail($id)->delete();
+        Product::findOrfail($id)->delete();
         return redirect()->route('admin.productTables.index');
     }
 }

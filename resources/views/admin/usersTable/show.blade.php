@@ -94,6 +94,7 @@ user
       <!-- /.card -->
     </div>
   </div>
+  
   <!-- /.row -->
 @endsection
 

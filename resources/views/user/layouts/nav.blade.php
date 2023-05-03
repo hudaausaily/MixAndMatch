@@ -14,8 +14,8 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a></li>
-                            <li><a href="shop.html">Shop</a></li>
+                            <li class="current-list-item"><a href="/user">Home</a></li>
+                            <li><a href="{{route('user.shop')}}">Shop</a></li>
                             <li><a href="shop.html">Customize</a></li>
                             <li><a href="about.html">About</a></li>
                             <li><a href="news.html">News</a></li>

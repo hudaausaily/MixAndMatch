@@ -2,7 +2,7 @@
 
 
 @section('title')
-Reservation
+order
 @endsection
 
 @section('css')
@@ -12,11 +12,11 @@ Reservation
 @endsection
 
 @section('section_title')
-Edit Reservation
+Edit order
 @endsection
 
 
-@section('Reservation')
+@section('order')
 active
 @endsection
 
@@ -25,7 +25,7 @@ admin
 @endsection
 
 @section('title_page2')
-Reservation
+order
 @endsection
 
 
@@ -39,7 +39,7 @@ Reservation
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('admin.reservation.update',$data->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('admin.order.update',$data->id)}}" method="POST" enctype="multipart/form-data">
               @method('PUT')
 
               @csrf

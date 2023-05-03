@@ -83,7 +83,7 @@ Admin
                   <label for="exampleInputFile">File input</label>
                   <div class="input-group">
                     <div class="custom-file">
-                        <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('movie_image') is-invalid @enderror"><br><br>
+                        <input id="product_image" type="file" name="product_image" placeholder="Upload Image" value="{{ old('product_image')}}" class="@error('movie_image') is-invalid @enderror"><br><br>
 
 
                     </div>
