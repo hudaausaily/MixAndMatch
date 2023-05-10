@@ -27,6 +27,8 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
 
+	<script src="https://kit.fontawesome.com/a8b56cb52b.js" crossorigin="anonymous"></script>
+
 </head>
 
 @yield('css')

@@ -57,15 +57,15 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{route('admin.order.index')}}" class="nav-link  @yield('orders')">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Orders
-                {{-- <span class="right badge badge-danger">user</span> --}}
+                <span class="right badge badge-danger">user</span>
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="{{route('admin.contact.show')}}" class="nav-link  @yield('message')">
               <i class="nav-icon fa-solid fa-message"></i>

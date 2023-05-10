@@ -431,7 +431,7 @@ h2{
 a.boxed-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
-  background-color: #F71610;
+  background-color: rgb(247, 22, 16);
   color: #fff;
   padding: 10px 20px;
 }

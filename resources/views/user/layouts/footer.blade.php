@@ -5,9 +5,9 @@
 				<div class="footer-box about-widget">
 					<h2 class="widget-title">Our Socials</h2>
 					<div class="foot-icons">
-					<a  class="socials" href=""><img src="./assets/img/instagram.png"></a>
-					<a class="socials" href=""><img src="./assets/img/facebook.png"></a>
-					<a class="socials" href=""><img src="./assets/img/twitter (1).png"></a>
+					<a  class="socials" href=""><img src="../assets/img/instagram.png"></a>
+					<a class="socials" href=""><img src="../assets/img/facebook.png"></a>
+					<a class="socials" href=""><img src="../assets/img/twitter (1).png"></a>
 					</div>
 				</div>
 			</div>

@@ -63,16 +63,15 @@ orders
         <!-- /.card-header -->
 
         <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap">
+          <table class="table table-head-fixed table-striped text-nowrap">
             <thead>
               <tr>
                 <th>#</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Phone No.</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>product</th>
-                <th>Guest number</th>
+                <th>Phone No.</th>
+                <th>Address</th>
+                <th>Products</th>
                 <th>Orders date</th>
                 <th>Status</th>
                 <th>edit</th>
@@ -85,12 +84,11 @@ orders
                 @if($value['status']=="Pending")
                 <tr>
                     <td>{{$value['id']}}</td>
-                    <td>{{$value['first_name']}}</td>
-                    <td>{{$value['last_name']}}</td>
-                    <td>{{$value['phoneNumber']}}</td>
+                    <td>{{$value['name']}}</td>
                     <td>{{$value['email']}}</td>
-                    <td>{{$value['product']	}}</td>
-                    <td>{{$value['number_of_guest']}}</td>
+                    <td>{{$value['phone']}}</td>
+                    <td>{{$value['address']}}</td>
+                    <td>{{$value['products']	}}</td>
 
                     <td>{{$value['res_date']	}}</td>
 
@@ -134,7 +132,7 @@ orders
         <!-- /.card-header -->
 
         <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap">
+          <table class="table table-head-fixed table-striped text-nowrap">
             <thead>
                 <tr>
                     <th>#</th>
@@ -210,7 +208,7 @@ orders
         <!-- /.card-header -->
 
         <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap">
+          <table class="table table-head-fixed table-striped text-nowrap">
             <thead>
               <tr>
                 <th>#</th>

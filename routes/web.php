@@ -15,6 +15,8 @@ use App\Http\Controllers\User\productsDetailsController;
 use App\Http\Controllers\User\EditBookController;
 use App\Http\Controllers\User\BookController;
 use App\Http\Controllers\User\ProfileUserController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\User\ShopController;
 use App\Http\Controllers\User\Search;
@@ -58,19 +60,41 @@ Route::get('/user', function () {
 Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/shop',[ShopController::class,'index'])->name('shop');
+    Route::get('/singleProduct/{id}',[ShopController::class,'single'])->name('single');
 
 
+    Route::post('/place-order', [OrderController::class, 'store'])->name('place-order');
 
 
     Route::get('/categories/{id}',[PublicUserController::class,'show'])->name('categories.show');
     
     Route::get('/about',function(){
-        return view('publicUser.about');
+        return view('user.about');
     })->name('about');
+    Route::get('/news',function(){
+        return view('user.news');
+    })->name('news');
+    Route::get('/contact',function(){
+        return view('user.contact');
+    })->name('contact');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.show');
+    Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::post('/cart/{id}', [CartController::class, 'updateCart'])->name('cart.update');
+    // Route::patch('/cart/update/{id}', [CartController::class, 'updateCart'])->name('user.cart.update');
+
+
+
+
+    Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('cart.add');
+
     
-   
+    Route::get('/user',[RegisterUserController::class,'store'])->name('signup.store');
+    Route::get('/login/check',[LoginUserController::class,'LoginPost'])->name('login.check');
+
+
     
-     Route::get('/contact',[FeedController::class,'index'])->name('contact');
+    //  Route::get('/contact',[FeedController::class,'index'])->name('contact');
      Route::get('/contact/create',[FeedController::class,'store'])->name('contact.create');
     
     Route::resource('/signup',RegisterUserController::class);

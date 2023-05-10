@@ -37,7 +37,7 @@ Messages
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0 "  style="height: 300px;">
-          <table class="table table-head-fixed text-nowrap" style="justify-content: center">
+          <table class="table table-head-fixed table-striped text-nowrap" style="justify-content: center">
             <thead>
               <tr>
 

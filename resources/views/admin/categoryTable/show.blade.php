@@ -49,14 +49,12 @@ Category
           </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap " style="text-align: center;" >
+        <div class="card-body table-responsive p-0 table-stripped" >
+          <table class="table table-head-fixed table-striped text-nowrap " style="text-align: center;" >
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Image</th>
-                <th>Description</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -68,10 +66,7 @@ Category
               <tr>
                 <td> {{$category->id}}</td>
                 <td>{{$category->name}}</td>
-                <?php $img=$category->image?>
-                <td><img src="{{URL::asset("storage/image/$img")}}" alt="" style="width: 75px"></td>
 
-                <td>{{$category->description}}</td>
 
                 <td>
                   <a href="{{route('admin.categories.edit',$category->id)}}"><button  type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a>

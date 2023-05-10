@@ -17,7 +17,7 @@ class OrderController extends Controller
     public function index()
     {
 
-        $orders = order::with('productTable')->get();
+        $orders = order::with('product')->get();
         // dd($orders);
         $data = [];
         foreach ($orders as $order) {
@@ -57,26 +57,39 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(orderStoreRequest $request)
-    {
-        // order::create([
+    public function store(OrderStoreRequest $request)
+{
+    $cartItems = json_decode($request->input('cartItems'));
 
-        //     'first_name' => $request->first_name,
-        //     'last_name' => $request->last_name,
-        //     'phoneNumber' => $request->phoneNumber,
-        //     'email' => $request->email,
-        //     'number_of_guest' => $request->number_of_guest,
-        //     'res_date' => $request->res_date,
-        //     'price' => $request->price,
-        //     'status' => $request->status,
-        //     'productTable_id' => $request->select,
+    // create a new order with the submitted data
+    $order = new Order();
+    $order->name = $request->input('name');
+    $order->email = $request->input('email');
+    $order->address = $request->input('address');
+    $order->phone = $request->input('phone');
+    $order->comment = $request->input('bill');
+    $order->subtotal = $request->input('subtotal');
+    $order->status = 'Pending';
+    $order->product_id = $cartItems[0]->product->id; // assuming there's only one product in the cart
+    $order->user_id = auth()->user()->id; // assuming there's an authenticated user
+    $order->save();
 
-
-        // ]);
-        order::create($request->validated());
-
-        return redirect()->route('admin.order.index');
+    // associate the order with the cart items
+    foreach ($cartItems as $cartItem) {
+        $orderItem = new OrderItem();
+        $orderItem->product_id = $cartItem->product->id;
+        $orderItem->quantity = $cartItem->quantity;
+        $orderItem->price = $cartItem->product->price;
+        $orderItem->order_id = $order->id;
+        $orderItem->save();
     }
+
+    // redirect to a success page or show a success message
+    return redirect()->route('user.orders')->with('success', 'Order placed successfully.');
+}
+
+
+
 
     /**
      * Display the specified resource.

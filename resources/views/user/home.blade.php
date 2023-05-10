@@ -15,7 +15,7 @@
 							<h2>Be the standout instantly <br>
 								with the right make-up.</h2>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Shop Now</a>
+								<a href="{{route('user.shop')}}" class="boxed-btn">Shop Now</a>
 								<a href="#" class="bordered-btn">Customize make-up</a>
 							</div>
 						</div>
@@ -81,31 +81,31 @@
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/1.png" alt=""></a>
+							<a href=""><img src="assets/img/products/1.png" alt=""></a>
 						</div>
 						<h3>E.L.F., Hydrating Face Primer</h3><br>
 						<p class="product-price"><span>0.47 fl oz (14 ml)</span> 17$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{route('user.shop')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/2.png" alt=""></a>
+							<a href=""><img src="assets/img/products/2.png" alt=""></a>
 						</div>
 						<h3> Minute Finish Powder Face Palette</h3>
 						<p class="product-price"><span>0.11 oz./ 3g</span> 22$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{route('user.shop')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/3.png" alt=""></a>
+							<a href=""><img src="assets/img/products/3.png" alt=""></a>
 						</div>
 						<h3>Bronzino Illuminating Cream Bronzer</h3>
 						<p class="product-price"><span>0.158 oz / 4.5 g</span> 20$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{route('user.shop')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
 			</div>
@@ -147,7 +147,7 @@
                     <div class="text">The Lip Bar is on fire!!! Discount up to 30% off any purchase you make on T.L.B's products until the end of this month. Don't miss the sale.</div>
                     <!--Countdown Timer-->
                     <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2023/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> SHOP NOW</a>
+                	<a href="{{route('user.shop')}}" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> SHOP NOW</a>
                 </div>
             </div>
         </div>
@@ -242,7 +242,7 @@
     	<div class="container">
         	<h3>January sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
             <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+            <a href="{{route('user.shop')}}" class="cart-btn btn-lg">Shop Now</a>
            
         </div>
          
@@ -265,30 +265,30 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
+						<a href="{{route('user.news')}}"><div class="latest-news-bg news-bg-1"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">Market Insights and Forecast with Impact of COVID-19 (2022-2027).</a></h3>
+							<h3><a href="{{route('user.news')}}">Market Insights and Forecast with Impact of COVID-19 (2022-2027).</a></h3>
 							<p class="blog-meta"> The Global Natural and Organic Cosmetics Market was valued at USD 29.92 billion in the year 2021.<br>
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
 								<span class="date"><i class="fas fa-calendar"></i> 3 October, 2021</span>
 							</p>
 							<p class="excerpt"></p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<a href="{{route('user.news')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div>
                 
                 <div class="col-lg-4 col-md-6 ">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
+						<a href="{{route('user.news')}}"><div class="latest-news-bg news-bg-3"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">Marie Kondo Reveals Which Beauty Products Spark Joy for Her </a></h3>
+							<h3><a href="{{route('user.news')}}">Marie Kondo Reveals Which Beauty Products Spark Joy for Her </a></h3>
 							<p class="blog-meta">Marie Kondo,explains how applying the KonMari method to your makeup can make you look at yourself in a new way. <br>
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
 								<span class="date"><i class="fas fa-calendar"></i> 21 December, 2022</span>
 							</p>
 							<p class="excerpt"></p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<a href="{{route('user.news')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						     </div>
 					    </div>
 				    </div>
@@ -297,15 +297,15 @@
 
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
+						<a href="{{route('user.news')}}"><div class="latest-news-bg news-bg-2"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">The 12 Best Natural and Organic Makeup Brands of 2022</a></h3>
+							<h3><a href="{{route('user.news')}}">The 12 Best Natural and Organic Makeup Brands of 2022</a></h3>
 							<p class="blog-meta">  We asked makeup artists for their all-time favorites and you wont believe their answers!!<br>
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
 								<span class="date"><i class="fas fa-calendar"></i> 27 May, 2022</span>
 							</p>
 							<p class="excerpt"></p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<a href="{{route('user.news')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -314,7 +314,7 @@
 			
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<a href="news.html" class="boxed-btn">More News</a>
+					<a href="{{route('user.news')}}"class="boxed-btn">More News</a>
 				</div>
 			</div>
 		</div>

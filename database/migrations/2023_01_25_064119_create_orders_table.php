@@ -15,18 +15,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->integer('phoneNumber');
+            $table->string('name');
             $table->string('email');
+            $table->integer('phone');
+            $table->string('address');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->string('status')->default('Pending');
-            $table->integer('number_of_guest')->default(1);
             $table->text('comment')->nullable();
-            $table->date('res_date');
-            $table->date('res_stop')->nullable();
-            $table->decimal('price');
+            $table->decimal('subtotal');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -48,8 +48,8 @@ edit Product
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="product_name" value="{{$data->name}}" class="@error('product_name') is-invalid @enderror">
-                  @error('product_name')
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{$data->name}}" class="@error('name') is-invalid @enderror">
+                  @error('name')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
@@ -77,19 +77,19 @@ edit Product
                 </div> --}}
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="product_price" placeholder="Enter price" value="{{$data->price}}" class="@error('product_price') is-invalid @enderror">
-                  @error('product_price')
+                  <input type="number" class="form-control" id="exampleInputEmail1" name="price" placeholder="Enter price" value="{{$data->price}}" class="@error('price') is-invalid @enderror">
+                  @error('=price')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Category <code></code></label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select" class="@error('select') is-invalid @enderror">
+                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="category" class="@error('category') is-invalid @enderror">
                         @foreach($category as $value)
                             <option value="{{$value->id}}">{{$value->name}}</option>
                         @endforeach
                     </select>
-                    @error('select')
+                    @error('category')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                   </div>
@@ -104,25 +104,9 @@ edit Product
                         <span class="input-group-text">Upload</span>
                       </div>
                   </div>
-                  @error('product_image')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                 
               </div>
-                <div class="form-group">
-                    <label for="exampleInputFile">Image two</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="product_image2" value="{{ old('product_image2')}}" class="@error('product_image2') is-invalid @enderror">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                    </div>
-                  @error('product_image2')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-              </div>
+               
               <!-- /.card-body -->
 
               <div class="card-footer">

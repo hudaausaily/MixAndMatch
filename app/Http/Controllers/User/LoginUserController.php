@@ -16,7 +16,6 @@ class LoginUserController extends Controller
 {
     public function index()
     {
-        return view('publicUser.login');
 
     }
     public function LoginPost(LoginRequest $request): RedirectResponse
@@ -34,7 +33,7 @@ class LoginUserController extends Controller
         {
             // $request->session()->regenerate();
 
-            return redirect()->route('user.index');
+            return redirect()->back();
 
         }
     }
@@ -46,7 +45,7 @@ class LoginUserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.home');
     }
 
 }

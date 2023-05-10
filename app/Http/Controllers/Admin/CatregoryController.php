@@ -43,18 +43,12 @@ class CatregoryController extends Controller
     {
         $request->validate([
             'name' => ['required'],
-            'description' => ['required'],
-            'image' =>['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
 
         ]);
-        $category_img = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/image',$category_img);
 
         // insert category
         $categories = new Category();
         $categories->name = $request->name;
-        $categories->description = $request->description;
-        $categories->image = $category_img;
         $categories->save();
 
         return redirect()->route('admin.categories.index');
@@ -102,16 +96,10 @@ class CatregoryController extends Controller
     {
         $request->validate([
             'name' => ['required'],
-            'description' => ['required'],
-            'image' =>['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
 
         ]);
-        $photoName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/image', $photoName);
         $category=Category::findorFail($id);
         $category->name=$request->name;
-        $category->description=$request->description;
-        $category->image=$photoName;
 
         $category->save();
          return redirect()->route('admin.categories.index');

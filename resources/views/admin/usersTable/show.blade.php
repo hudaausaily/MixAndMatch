@@ -51,14 +51,13 @@ user
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap" style="text-align: center;">
+          <table class="table table-head-fixed table-striped text-nowrap" style="text-align: center;">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>is_admin</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -71,7 +70,6 @@ user
                     <td>{{$value->name}}</td>
                     <td>{{$value->email	}}</td>
                     <td>{{$value->phone	}}</td>
-                    <td>{{$value->is_admin	}}</td>
 
                     <td>
                         <form action="{{Route('admin.users.destroy',$value->id)}}" method="post">

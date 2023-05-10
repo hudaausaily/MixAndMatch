@@ -30,13 +30,11 @@ class orderStoreRequest extends FormRequest
     public function rules()
     {
         return [
-             'first_name' => ['required'],
-             'last_name' => ['required'],
-             'phoneNumber' => ['required'],
-             'number_of_guest' => ['required'],
-             'res_date' => ['required','date', new DateBetween],
-             'email' => ['required', 'string', 'email'],
-             'password' => ['required', 'string'],
+             'name' => ['required'],
+             'email' => ['required'],
+             'phone' => ['required'],
+             'subtotal' => ['required'],
+             'address' => ['required', 'string'],
 
         ];
     }

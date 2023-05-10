@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Feed;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
+
 use DB;
 
 class FeedController extends Controller
 {
     public function index(){
-        return view('publicUser.contact');
+        // return view('publicUser.contact');
     }
     public function store(Request $request){
 
@@ -31,7 +33,7 @@ class FeedController extends Controller
         "subject"=>$subject,'message'=>$message);
         DB::table('feeds')->insert($data);
 
-        return redirect()->route('user.contact');
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
     public function show(){
         $data=Feed::all();

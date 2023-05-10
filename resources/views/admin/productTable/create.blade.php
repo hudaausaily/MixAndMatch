@@ -45,7 +45,7 @@ Product
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="product_name" placeholder="Enter name" value="{{ old('product_name')}}" class="@error('product_name') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="{{ old('name')}}" class="@error('product_name') is-invalid @enderror">
                   @error('product_name')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
@@ -53,7 +53,7 @@ Product
 
                 <div class="form-group">
                   <label for="exampleInputEmail11">Short description</label>
-                  <input type="text" class="form-control" id="exampleInputEmail11" name="short_description" placeholder="Enter Long description" value="{{ old('short_description')}}" class="@error('short_description') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail11" name="short_description" placeholder="Enter Short description" value="{{ old('short_description')}}" class="@error('short_description') is-invalid @enderror">
                   @error('short_description')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
@@ -65,23 +65,17 @@ Product
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Guest number</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="guest_number" placeholder="Enter guest number" value="{{ old('guest_number')}}" class="@error('guest_number') is-invalid @enderror">
-                  @error('guest_number')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
+             
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="product_price" placeholder="Enter price" value="{{ old('product_price')}}" class="@error('product_price') is-invalid @enderror">
+                  <input type="number" class="form-control" id="exampleInputEmail1" name="price" placeholder="Enter price" value="{{ old('price')}}" class="@error('product_price') is-invalid @enderror">
                   @error('product_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Category <code></code></label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select" class="@error('select') is-invalid @enderror">
+                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="category" class="@error('select') is-invalid @enderror">
                         @foreach($category as $value)
                             <option value="{{$value->id}}">{{$value->name}}</option>
                         @endforeach
@@ -106,22 +100,7 @@ Product
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Image two</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                        {{-- <input id="product_image" type="file" name="product_image" placeholder="Upload Image" value="{{ old('product_image')}}" class="@error('product_image') is-invalid @enderror"><br><br> --}}
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="product_image2" value="{{ old('product_image2')}}" class="@error('product_image2') is-invalid @enderror">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                    </div>
-                        @error('product_image2')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
+                
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
